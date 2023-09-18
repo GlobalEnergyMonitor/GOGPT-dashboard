@@ -1,3 +1,41 @@
+# env
+dashboardenv/
+
+# Excel
+*.xlsx
+
+# Flask 
+
+.DS_Store
+
+*.dashboardenv/
+.dashboardenv/
+.env
+.flaskenv
+*.pyc
+*.pyo
+env/
+venv/
+.venv/
+env*
+dist/
+build/
+*.egg
+*.egg-info/
+.tox/
+.cache/
+.pytest_cache/
+.idea/
+docs/_build/
+.vscode
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+*,cover
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
