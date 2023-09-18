@@ -2,7 +2,7 @@
 dashboardenv/
 
 # Excel
-*.xlsx
+# *.xlsx
 
 # Flask 
 
