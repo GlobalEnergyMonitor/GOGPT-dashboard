@@ -1,15 +1,11 @@
-# env
-dashboardenv/
 
 # Excel
-# *.xlsx
+*.xlsx
 
 # Flask 
 
 .DS_Store
 
-*.dashboardenv/
-.dashboardenv/
 .env
 .flaskenv
 *.pyc
