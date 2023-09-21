@@ -42,7 +42,7 @@ def sort_status(df):
 # ===================================
 layout_chosen = '2 columns'  # options: '1 column', '2 columns'
 # filepath = 'https://github.com/GlobalEnergyMonitor/GOGPT-dashboard/blob/main/data/Global%20Oil%20and%20Gas%20Plant%20Tracker%20(GOGPT)%20compiled%202023-08-18%20-%20processed%20for%20Dash%202023-09-18_1621.xlsx?raw=true'
-filepath = 'https://github.com/GlobalEnergyMonitor/GOGPT-dashboard/blob/main/data/Global%20Oil%20and%20Gas%20Plant%20Tracker%20(GOGPT)%20compiled%202023-08-18%20-%20processed%20for%20Dash%202023-09-21_1631.xlsx?raw=true'
+filepath = 'https://github.com/GlobalEnergyMonitor/GOGPT-dashboard/blob/main/data/Global%20Oil%20and%20Gas%20Plant%20Tracker%20(GOGPT)%20compiled%202023-08-18%20-%20processed%20for%20Dash%202023-09-21_1637.xlsx?raw=true'
 # # ===================================
 dash_data_xl = pd.ExcelFile(filepath, engine='openpyxl')
 
@@ -216,15 +216,17 @@ def create_chart_by_status(gogpt_status, sel_country):
         ),
 
         xaxis = dict(
+        title='Semi-annual Data Releases',
         tickmode = 'linear',
         tick0 = 0,
-        dtick = 1
+        dtick = 1,
         ),
 
         legend=dict(
             orientation='h',
             yanchor='top',
-            y=-0.1,
+            # y=-0.1,
+            y=-0.2,
             xanchor='left',
             x=0,
             traceorder='normal',
@@ -345,38 +347,27 @@ def create_chart_additions(gogpt_add, sel_country):
             hovertemplate=status + ': %{y:,.0f} MW<extra></extra>',
         ))
 
-    # add line for net additions
-    # https://plotly.com/python/graphing-multiple-chart-types/#line-chart-and-a-bar-chart
-    # df_status = df[['Year', 'Net added']].set_index('Year')
-
-    # fig_add.add_trace(go.Scatter(
-    #     x=df_status.index,
-    #     y=df_status['Net added'],
-    #     name='Net added',
-    #     mode='markers',
-    #     marker_color='black',
-    #     hoverinfo='skip',
-    # ))
 
     # update overall layout
     fig_add.update_layout(
         barmode='stack', 
         title='Gas & Oil Power Capacity Added',
-        showlegend=True,
+        # showlegend=True,
         yaxis=dict(
             title='Megawatts (MW)',
         ),
-        # xaxis = dict(
-        # tickmode = 'linear',
-        # tick0 = 0,
-        # dtick = 4
-        # ),
+        xaxis = dict(
+            title='Plant Start Year',
+        #     tickmode = 'linear',
+        #     tick0 = 0,
+        #     dtick = 4
+        ),
         legend=dict(
             orientation='h',
             yanchor='top',
-            y=-0.1,
+            y=-0.2,
             xanchor='left',
-            x=0,
+            x=.4,
             traceorder='normal',
         ),
     )
