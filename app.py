@@ -182,7 +182,7 @@ fig_map = create_chart_choro(
 # format of color dictionary follows GreenInfo map code
 gogpt_map_colors = {
   'announced': {'id': 0, 'text': 'Announced', 'color': '#1a0e5c'},
-  'pre-construction': {'id': 1, 'text': 'pre-construction', 'color': '#680266'},
+  'pre-construction': {'id': 1, 'text': 'pre-construction', 'color': '#00ba89'},
   'construction': {'id': 2, 'text': 'Construction', 'color': '#cb2359'},
   'shelved': {'id': 3, 'text': 'Shelved', 'color': '#f8693e'},
   'operating': {'id': 4, 'text': 'Operating', 'color': '#ffb421'},
@@ -261,8 +261,8 @@ fig_status = create_chart_by_status(
 # from Data Color Picker (learnui)
 age_tech_pallette = {
     'Gas Turbine': '#1a0e5c', 
-    'Steam Turbine': '#680266', 
-    'Combined Cycle': '#a30063', 
+    'Steam Turbine': '#007c91', 
+    'Combined Cycle': '#00ba89', 
     'Internal Combustion Combined Cycle': '#cb2359', 
     'Integrated Solar Combined Cycle': '#f8693e', 
     'Allam-Fetvedt Cycle': '#ffb421',
