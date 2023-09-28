@@ -142,7 +142,7 @@ def create_chart_choro(gogpt_map, sel_country):
     fig_map.update_layout(
         title_text='Operating Gas & Oil Power Capacity by Country',
         # use margin to get title placement correct
-        margin={'r': 0, 't': 100, 'l': 0, 'b': 0},
+        margin={'r': 0, 't': 100, 'l': 0, 'b': 0},  
         dragmode=False,
         geo=dict(
                 showframe=False,
@@ -226,19 +226,20 @@ def create_chart_by_status(gogpt_status, sel_country):
             orientation='h',
             yanchor='top',
             # y=-0.1,
-            y=-0.05,
+            y=-0.07,
             xanchor='left',
             x=0,
             traceorder='normal',
         ),
-        margin=dict(l=20, r=20, t=30, b=40),
+        # margin=dict(l=20, r=20, t=30, b=60),
+        margin={'r': 0, 't': 100, 'l': 0, 'b': 100}
     )
 
-    fig_status.add_annotation(dict(font=dict(color='black',size=10),
+    fig_status.add_annotation(dict(font=dict(color='dark blue',size=12),
                             x=.02,
-                            y=-0.16,
+                            y=-0.3,
                             showarrow=False,
-                            text='Starting in H1 2022 GOGPT status category "proposed" was expanded into "announced" and "pre-construction"',
+                            text='Research Note: Starting in H1 2022 GOGPT status category "proposed" was expanded into "announced" and "pre-construction"',
                             textangle=0,
                             xanchor='left',
                             xref='paper',
@@ -369,7 +370,7 @@ def create_chart_additions(gogpt_add, sel_country):
             title='Megawatts (MW)',
         ),
         xaxis = dict(
-            title='Start Year',
+            title='Plant Start Year',
             tickmode = 'array',
             tickvals = [2002, 2005, 2008, 2011, 2014, 2017, 2020, 2023],
             ticktext = ['2002', '2005', '2008', '2011', '2014', '2017', '2020', '2023*\u200b']
@@ -382,13 +383,14 @@ def create_chart_additions(gogpt_add, sel_country):
             x=.4,
             traceorder='normal',
         ),
-        margin=dict(l=20, r=20, t=30, b=40),
+        # margin=dict(l=20, r=20, t=30, b=40),
+        margin={'r': 0, 't': 100, 'l': 0, 'b': 100}
     )
-    fig_status.add_annotation(dict(font=dict(color='black',size=10),
+    fig_add.add_annotation(dict(font=dict(color='dark blue',size=12),
                         x=.02,
-                        y=-0.2,
+                        y=-0.15,
                         showarrow=False,
-                        text='*H1 2023 data',
+                        text='*\u200bH1 2023 data',
                         textangle=0,
                         xanchor='left',
                         xref='paper',
