@@ -408,7 +408,7 @@ fig_add = create_chart_additions(
 
 app = dash.Dash(
     __name__, 
-    external_stylesheets=[dbc.themes.CYBORG] # here is where we are getting styling, why all else doesn't update it. We can remove this and use our own stylesheet to adjust padding and margins.
+    external_stylesheets=[dbc.themes.BOOTSTRAP] # here is where we are getting styling, why all else doesn't update it. We can remove this and use our own stylesheet to adjust padding and margins.
     )
 
 # title based on: https://community.plotly.com/t/how-do-you-set-page-title/40115
