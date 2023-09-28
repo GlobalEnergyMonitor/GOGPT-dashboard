@@ -181,12 +181,12 @@ fig_map = create_chart_choro(
 
 # format of color dictionary follows GreenInfo map code
 gogpt_map_colors = {
-  'announced': {'id': 0, 'text': 'Announced', 'color': '#7a5195'},
-  'pre-construction': {'id': 1, 'text': 'Pre-permit', 'color': '#b05093'},
-  'construction': {'id': 2, 'text': 'Construction', 'color': '#de5182'},
-  'shelved': {'id': 3, 'text': 'Shelved', 'color': '#fd6065'},
-  'operating': {'id': 4, 'text': 'Operating', 'color': '#ff7f40'},
-  'mothballed': {'id': 5, 'text': 'Mothballed', 'color': '#ffa600'},
+  'announced': {'id': 0, 'text': 'Announced', 'color': '#1a0e5c'},
+  'pre-construction': {'id': 1, 'text': 'pre-construction', 'color': '#680266'},
+  'construction': {'id': 2, 'text': 'Construction', 'color': '#cb2359'},
+  'shelved': {'id': 3, 'text': 'Shelved', 'color': '#f8693e'},
+  'operating': {'id': 4, 'text': 'Operating', 'color': '#ffb421'},
+  'mothballed': {'id': 5, 'text': 'Mothballed', 'color': '#ebff45'},
 }
 
 
@@ -247,13 +247,13 @@ fig_status = create_chart_by_status(
 # 'Gas Turbine', 'Steam Turbine', 'Combined Cycle', 'Internal Combustion Combined Cycle', 'Integrated Solar Combined Cycle', 'Allam-Fetvedt Cycle', 'Internal Combustion'
 # from Data Color Picker (learnui)
 age_tech_pallette = {
-    'Gas Turbine': '#003f5c', 
-    'Steam Turbine': '#374c80', 
-    'Combined Cycle': '#7a5195', 
-    'Internal Combustion Combined Cycle': '#bc5090', 
-    'Integrated Solar Combined Cycle': '#ef5675', 
-    'Allam-Fetvedt Cycle': '#ff764a',
-    'Internal Combustion': '#ffa600',
+    'Gas Turbine': '#1a0e5c', 
+    'Steam Turbine': '#680266', 
+    'Combined Cycle': '#a30063', 
+    'Internal Combustion Combined Cycle': '#cb2359', 
+    'Integrated Solar Combined Cycle': '#f8693e', 
+    'Allam-Fetvedt Cycle': '#ffb421',
+    'Internal Combustion': '#ebff45',
     'Unknown': '#808080' # grey
 }
 # not used: '#444e86', # medium blue; instead put in grey
@@ -338,7 +338,7 @@ def create_chart_additions(gogpt_add, sel_country):
     for status in ['Added']:
         df_status = df[['Year', status]].set_index('Year')
 
-        color = '#7a5195'
+        color = '#680266'
         fig_add.add_trace(go.Bar(
             x=df_status.index, 
             y=df_status[status], # values are capacities (MW)
