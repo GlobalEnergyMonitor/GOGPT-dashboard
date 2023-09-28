@@ -216,21 +216,33 @@ def create_chart_by_status(gogpt_status, sel_country):
         ),
 
         xaxis = dict(
-        title='Semi-annual Data Releases',
-        tickmode = 'linear',
-        tick0 = 0,
-        dtick = 1,
+        # title='Semi-annual Data Releases',
+        tickmode = 'array',
+        tickvals = [2021.5, 2022, 2022.5, 2023, 2023.5],
+        ticktext = ['H2 2021', 'H1 2022', 'H2 2022', 'H1 2023', 'H2 2023'],
         ),
 
         legend=dict(
             orientation='h',
             yanchor='top',
             # y=-0.1,
-            y=-0.2,
+            y=-0.05,
             xanchor='left',
             x=0,
             traceorder='normal',
         ),
+        margin=dict(l=20, r=20, t=30, b=40),
+    )
+
+    fig_status.add_annotation(dict(font=dict(color='black',size=10),
+                            x=.02,
+                            y=-0.16,
+                            showarrow=False,
+                            text='Starting in H1 2022 GOGPT status category "proposed" was expanded into "announced" and "pre-construction"',
+                            textangle=0,
+                            xanchor='left',
+                            xref='paper',
+                            yref='paper')
     )
 
     return fig_status
@@ -357,10 +369,10 @@ def create_chart_additions(gogpt_add, sel_country):
             title='Megawatts (MW)',
         ),
         xaxis = dict(
-            title='Plant Start Year',
-        #     tickmode = 'linear',
-        #     tick0 = 0,
-        #     dtick = 4
+            title='Start Year',
+            tickmode = 'array',
+            tickvals = [2002, 2005, 2008, 2011, 2014, 2017, 2020, 2023],
+            ticktext = ['2002', '2005', '2008', '2011', '2014', '2017', '2020', '2023*\u200b']
         ),
         legend=dict(
             orientation='h',
@@ -370,6 +382,17 @@ def create_chart_additions(gogpt_add, sel_country):
             x=.4,
             traceorder='normal',
         ),
+        margin=dict(l=20, r=20, t=30, b=40),
+    )
+    fig_status.add_annotation(dict(font=dict(color='black',size=10),
+                        x=.02,
+                        y=-0.2,
+                        showarrow=False,
+                        text='*H1 2023 data',
+                        textangle=0,
+                        xanchor='left',
+                        xref='paper',
+                        yref='paper')
     )
 
     return fig_add
@@ -385,7 +408,7 @@ fig_add = create_chart_additions(
 
 app = dash.Dash(
     __name__, 
-    external_stylesheets=[dbc.themes.BOOTSTRAP]
+    external_stylesheets=[dbc.themes.CYBORG] # here is where we are getting styling, why all else doesn't update it. We can remove this and use our own stylesheet to adjust padding and margins.
     )
 
 # title based on: https://community.plotly.com/t/how-do-you-set-page-title/40115
@@ -445,7 +468,7 @@ elif layout_chosen == '2 columns':
                 dbc.Row(dropdown_title),
                 dbc.Row(country_dropdown),
             ], md=4),
-            dbc.Col([], xl=5) # spacer
+            dbc.Col([]) # spacer , xl=10
             # # section for download button:
             # dbc.Col([
             #     dbc.Row(download_text),
@@ -455,21 +478,21 @@ elif layout_chosen == '2 columns':
             # ], md = 2),
         ]),
         dbc.Row([
-            dbc.Col(choro_graph, xl=6, align="start"),
-            dbc.Col(status_graph, xl=6, align="start"),
+            dbc.Col(choro_graph, align="evenly"), # xl=5 , align="start"
+            dbc.Col(status_graph, align="evenly"),
         ]),
         dbc.Row([
-            dbc.Col(age_graph, xl=6, align="start"),
-            dbc.Col(add_graph, xl=6, align="start"),
+            dbc.Col(age_graph, align="evenly"),
+            dbc.Col(add_graph, align="evenly"),
         ]),
         dbc.Row([
             dbc.Col([
                 html.H6(f'Data from Global Oil and Gas Plant Tracker, {release_date} release'),
-            ]),
+            ], align="evenly"),
         ]),
     ],
     )
-
+#dash.Dash(external_stylesheets=
 @app.callback(
     Output('chart_choro', 'figure'),
     Output('chart_status', 'figure'),
