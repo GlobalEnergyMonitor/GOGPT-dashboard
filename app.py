@@ -142,7 +142,7 @@ def create_chart_choro(gogpt_map, sel_country):
     fig_map.update_layout(
         title_text='Operating Gas & Oil Power Capacity by Country',
         # use margin to get title placement correct
-        margin={'r': 0, 't': 100, 'l': 0, 'b': 0},  
+        margin={'r': 0, 't': 100, 'l': 0, 'b': 100},  
         dragmode=False,
         geo=dict(
                 showframe=False,
@@ -231,7 +231,6 @@ def create_chart_by_status(gogpt_status, sel_country):
             x=0,
             traceorder='normal',
         ),
-        # margin=dict(l=20, r=20, t=30, b=60),
         margin={'r': 0, 't': 100, 'l': 0, 'b': 100}
     )
 
@@ -383,7 +382,6 @@ def create_chart_additions(gogpt_add, sel_country):
             x=.4,
             traceorder='normal',
         ),
-        # margin=dict(l=20, r=20, t=30, b=40),
         margin={'r': 0, 't': 100, 'l': 0, 'b': 100}
     )
     fig_add.add_annotation(dict(font=dict(color='dark blue',size=12),
@@ -470,7 +468,7 @@ elif layout_chosen == '2 columns':
                 dbc.Row(dropdown_title),
                 dbc.Row(country_dropdown),
             ], md=4),
-            dbc.Col([]) # spacer , xl=10
+            dbc.Col([], xl=5) # spacer
             # # section for download button:
             # dbc.Col([
             #     dbc.Row(download_text),
