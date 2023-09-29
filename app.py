@@ -219,7 +219,7 @@ def create_chart_by_status(gogpt_status, sel_country):
         # title='Semi-annual Data Releases',
         tickmode = 'array',
         tickvals = [2021.5, 2022, 2022.5, 2023, 2023.5],
-        ticktext = ['H2 2021', 'H1 2022', 'H2 2022', 'H1 2023', 'H2 2023'],
+        ticktext = ['H1 2021', 'H2 2021', 'H1 2022', 'H2 2022', 'H1 2023'],
         ),
 
         legend=dict(
