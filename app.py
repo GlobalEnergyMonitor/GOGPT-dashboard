@@ -216,7 +216,7 @@ def create_chart_by_status(gogpt_status, sel_country):
         ),
 
         xaxis = dict(
-        # title='Semi-annual Data Releases',
+        # title='Note: In H1 2022 status category "proposed" was expanded into "announced" and "pre-construction"',
         tickmode = 'array',
         tickvals = [2021.5, 2022, 2022.5, 2023, 2023.5],
         ticktext = ['H1 2021', 'H2 2021', 'H1 2022', 'H2 2022', 'H1 2023'],
@@ -234,18 +234,20 @@ def create_chart_by_status(gogpt_status, sel_country):
         margin={'r': 0, 't': 100, 'l': 0, 'b': 100}
     )
 
-    fig_status.add_annotation(dict(font=dict(color='dark blue',size=12),
+    fig_status.add_annotation(dict(font=dict(color='dark blue',size=10),
                             x=.02,
-                            y=-0.3,
+                            y=-0.4,
                             # height=4,
                             align='left',
                             # width=800,
                             showarrow=False,
-                            text='Note: In H1 2022 status category "proposed" was expanded into "announced" and "pre-construction"',
+                            text='Note: In H1 2022 status category "proposed" was expanded <br>into "announced" and "pre-construction"',
                             textangle=0,
                             xanchor='left',
-                            xref='paper',
-                            yref='paper')
+                            xref= 'paper',
+                            yref= 'paper',
+                            # borderwidth= 800
+                            )
     )
 
     return fig_status
@@ -387,7 +389,7 @@ def create_chart_additions(gogpt_add, sel_country):
         ),
         margin={'r': 0, 't': 100, 'l': 0, 'b': 100}
     )
-    fig_add.add_annotation(dict(font=dict(color='dark blue',size=12),
+    fig_add.add_annotation(dict(font=dict(color='dark blue',size=10),
                         x=.02,
                         y=-0.15,
                         showarrow=False,
