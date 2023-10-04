@@ -142,7 +142,7 @@ def create_chart_choro(gogpt_map, sel_country):
     fig_map.update_layout(
         title_text='Operating Gas & Oil Power Capacity by Country',
         # use margin to get title placement correct
-        margin={'r': 0, 't': 100, 'l': 0, 'b': 100},  
+        margin={'r': 60, 't': 100, 'l': 60, 'b': 100},  
         dragmode=False,
         geo=dict(
                 showframe=False,
@@ -231,7 +231,7 @@ def create_chart_by_status(gogpt_status, sel_country):
             x=0,
             traceorder='normal',
         ),
-        margin={'r': 0, 't': 100, 'l': 0, 'b': 100}
+        margin={'r': 60, 't': 100, 'l': 60, 'b': 100}
     )
 
     fig_status.add_annotation(dict(font=dict(color='dark blue',size=10),
@@ -328,6 +328,8 @@ def create_chart_age_type(gogpt_age, sel_country):
             x=0,
             traceorder='normal',
         ),
+        margin={'r': 60, 't': 100, 'l': 60, 'b': 100}
+
     )
 
     # reverse axis to put youngest at the top
@@ -353,12 +355,12 @@ def create_chart_additions(gogpt_add, sel_country):
     })
     
     for status in ['Added']:
-        df_status = df[['Year', status]].set_index('Year')
+        df_add = df[['Year', status]].set_index('Year')
 
         color = '#680266'
         fig_add.add_trace(go.Bar(
-            x=df_status.index, 
-            y=df_status[status], # values are capacities (MW)
+            x=df_add.index, 
+            y=df_add[status], # values are capacities (MW)
             name=status, 
             marker_color=color,
             hovertemplate=status + ': %{y:,.0f} MW<extra></extra>',
@@ -379,15 +381,15 @@ def create_chart_additions(gogpt_add, sel_country):
             tickvals = [2002, 2005, 2008, 2011, 2014, 2017, 2020, 2023],
             ticktext = ['2002', '2005', '2008', '2011', '2014', '2017', '2020', '2023*\u200b']
         ),
-        legend=dict(
-            orientation='h',
-            yanchor='top',
-            y=-0.2,
-            xanchor='left',
-            x=.4,
-            traceorder='normal',
-        ),
-        margin={'r': 0, 't': 100, 'l': 0, 'b': 100}
+        # legend=dict(
+        #     orientation='h',
+        #     yanchor='top',
+        #     y=-0.2,
+        #     xanchor='left',
+        #     x=.4,
+        #     traceorder='normal',
+        # ),
+        margin={'r': 60, 't': 100, 'l': 60, 'b': 100}
     )
     fig_add.add_annotation(dict(font=dict(color='dark blue',size=10),
                         x=.02,
