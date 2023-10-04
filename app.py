@@ -441,7 +441,7 @@ def create_chart_additions(gogpt_add, sel_country):
     )
     fig_add.add_annotation(dict(font=dict(color='dark blue',size=10),
                         x=.02,
-                        y=-0.15,
+                        y=-0.2,
                         showarrow=False,
                         text='*\u200bH1 2023 data',
                         textangle=0,
