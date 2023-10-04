@@ -489,7 +489,7 @@ server = app.server
 # ===================================
 # Create graphs of charts
 
-dropdown_title = html.H5(children='Select a country:')
+dropdown_title = html.H5(children='Select a country:', style={'marginBottom': 10, 'marginTop': 25}), 
 download_text = html.H6(children='Download figure data:')
 download_button = html.Button("Download Excel file", id="btn_xlsx"),
 
