@@ -153,6 +153,26 @@ def create_chart_choro(gogpt_map, sel_country):
                 visible=True,
             ),
     )
+    fig_map.add_annotation(dict(font=dict(color='dark blue',size=10),
+                        x=.02,
+                        y=-0.4,
+                        # height=4,
+                        align='left',
+                        # width=800,
+                        showarrow=False,
+                        text=
+                            "<b>Total operating gas and oil power capacity by country as " + 
+                            "<br>of latest data release (see release date below). Hover over " +
+                            "<br>each country on the map to see total operating capacity. " +
+                            "<br>Filter to select a specific country. Read our <a href='https://globalenergymonitor.org/projects/global-oil-gas-plant-tracker/methodology/'>Methodology page</a> " +
+                            "<br>for more information on our data inclusion criteria and methodology.</b>",
+                        textangle=0,
+                        xanchor='left',
+                        xref= 'paper',
+                        yref= 'paper',
+                        # borderwidth= 800
+                        )
+    )
 
     # based on: https://plotly.com/python/choropleth-maps/
     # referred by: https://plotly.com/python/map-configuration/#automatic-zooming-or-bounds-fitting
@@ -216,7 +236,6 @@ def create_chart_by_status(gogpt_status, sel_country):
         ),
 
         xaxis = dict(
-        # title='Note: In H1 2022 status category "proposed" was expanded into "announced" and "pre-construction"',
         tickmode = 'array',
         tickvals = [2021.5, 2022, 2022.5, 2023, 2023.5],
         ticktext = ['H1 2021', 'H2 2021', 'H1 2022', 'H2 2022', 'H1 2023'],
@@ -226,30 +245,43 @@ def create_chart_by_status(gogpt_status, sel_country):
             orientation='h',
             yanchor='top',
             # y=-0.1,
-            y=-0.07,
+            y=-0.2,
             xanchor='left',
             x=0,
             traceorder='normal',
         ),
-        margin={'r': 60, 't': 100, 'l': 60, 'b': 100}
+        margin={'r': 60, 't': 100, 'l': 60, 'b': 150}
     )
 
     fig_status.add_annotation(dict(font=dict(color='dark blue',size=10),
                             x=.02,
-                            y=-0.4,
-                            # height=4,
+                            y=-0.23,
                             align='left',
-                            # width=800,
                             showarrow=False,
-                            text='Note: In H1 2022 status category "proposed" was expanded <br>into "announced" and "pre-construction"',
+                            text=
+                                'Note: In H1 2022 status category "proposed" was expanded '+
+                                '<br>into "announced" and "pre-construction"',
                             textangle=0,
                             xanchor='left',
                             xref= 'paper',
                             yref= 'paper',
-                            # borderwidth= 800
                             )
     )
-
+    fig_status.add_annotation(dict(font=dict(color='dark blue',size=10),
+                        x=1,
+                        y=-0.75,
+                        align='left',
+                        showarrow=False,
+                        text=
+                            '<b>Oil and gas power capacity by status over bi-annual intervals. ' +
+                            '<br>Hover over each graph section to see total capacity for the specific ' +
+                            '<br>status category for that time period. ' +
+                            '<br>Read our <a href="https://globalenergymonitor.org/projects/global-oil-gas-plant-tracker/methodology/">Methodology page</a> for definitions of our status categories. </b>',
+                        textangle=0,
+                        xanchor='right',
+                        xref='paper',
+                        yref='paper')
+    )
     return fig_status
 
 
@@ -332,6 +364,22 @@ def create_chart_age_type(gogpt_age, sel_country):
 
     )
 
+    fig_age.add_annotation(dict(font=dict(color='dark blue',size=10),
+                        x=1,
+                        y=0.1,
+                        showarrow=False,
+                        text=
+                        '<b>Operating oil and gas power capacity by age and ' +
+                        '<br>technology type. Hover over each graph section to see ' +
+                        '<br>total capacity for the specific ' +
+                        '<br>technology type for that age range.</b>',
+                        textangle=0,
+                        # xanchor='auto',
+                        align='left',
+                        xref='paper',
+                        yref='paper')
+    )
+
     # reverse axis to put youngest at the top
     fig_age['layout']['yaxis']['autorange'] = "reversed"
     
@@ -401,6 +449,22 @@ def create_chart_additions(gogpt_add, sel_country):
                         xref='paper',
                         yref='paper')
     )
+    fig_add.add_annotation(dict(font=dict(color='dark blue',size=10),
+                        x=.02,
+                        y=-0.5,
+                        align='left',
+                        showarrow=False,
+                        text=
+                            '<b>Annual oil and gas power capacity additions ' +
+                            '<br>by start year. Hover over each graph section to see ' +
+                            '<br>total oil and gas power capacity addition for the specific ' +
+                            '<br>start year. Note that this graph subtracts any capacity for ' +
+                            '<br>plants that have retired since 2000.</b>',
+                        textangle=0,
+                        xanchor='left',
+                        xref='paper',
+                        yref='paper')
+    )
 
     return fig_add
 
@@ -425,7 +489,7 @@ server = app.server
 # ===================================
 # Create graphs of charts
 
-dropdown_title = html.H6(children='Select a country:')
+dropdown_title = html.H5(children='Select a country:')
 download_text = html.H6(children='Download figure data:')
 download_button = html.Button("Download Excel file", id="btn_xlsx"),
 
