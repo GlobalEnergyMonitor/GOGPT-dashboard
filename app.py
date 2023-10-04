@@ -142,7 +142,7 @@ def create_chart_choro(gogpt_map, sel_country):
     fig_map.update_layout(
         title_text='Operating Gas & Oil Power Capacity by Country',
         # use margin to get title placement correct
-        margin={'r': 60, 't': 100, 'l': 60, 'b': 100},  
+        margin={'r': 60, 't': 100, 'l': 60, 'b': 150},
         dragmode=False,
         geo=dict(
                 showframe=False,
@@ -238,16 +238,16 @@ def create_chart_by_status(gogpt_status, sel_country):
         xaxis = dict(
         tickmode = 'array',
         tickvals = [2021.5, 2022, 2022.5, 2023, 2023.5],
-        ticktext = ['H1 2021', 'H2 2021', 'H1 2022', 'H2 2022', 'H1 2023'],
+        ticktext = ['H1 2021', 'H2 2021', 'H1 2022*\u200b', 'H2 2022', 'H1 2023'],
         ),
 
         legend=dict(
-            orientation='h',
+            # orientation='h',
             yanchor='top',
             # y=-0.1,
-            y=-0.2,
+            y=1,
             xanchor='left',
-            x=0,
+            x=1,
             traceorder='normal',
         ),
         margin={'r': 60, 't': 100, 'l': 60, 'b': 150}
@@ -255,11 +255,11 @@ def create_chart_by_status(gogpt_status, sel_country):
 
     fig_status.add_annotation(dict(font=dict(color='dark blue',size=10),
                             x=.02,
-                            y=-0.23,
+                            y=-0.3,
                             align='left',
                             showarrow=False,
                             text=
-                                'Note: In H1 2022 status category "proposed" was expanded '+
+                                '*\u200bIn H1 2022 status category "proposed" was expanded '+
                                 '<br>into "announced" and "pre-construction"',
                             textangle=0,
                             xanchor='left',
@@ -268,8 +268,8 @@ def create_chart_by_status(gogpt_status, sel_country):
                             )
     )
     fig_status.add_annotation(dict(font=dict(color='dark blue',size=10),
-                        x=1,
-                        y=-0.75,
+                        x=.02,
+                        y=-0.6,
                         align='left',
                         showarrow=False,
                         text=
@@ -278,7 +278,7 @@ def create_chart_by_status(gogpt_status, sel_country):
                             '<br>status category for that time period. ' +
                             '<br>Read our <a href="https://globalenergymonitor.org/projects/global-oil-gas-plant-tracker/methodology/">Methodology page</a> for definitions of our status categories. </b>',
                         textangle=0,
-                        xanchor='right',
+                        xanchor='left',
                         xref='paper',
                         yref='paper')
     )
@@ -360,7 +360,7 @@ def create_chart_age_type(gogpt_age, sel_country):
             x=0,
             traceorder='normal',
         ),
-        margin={'r': 60, 't': 100, 'l': 60, 'b': 100}
+        margin={'r': 60, 't': 100, 'l': 60, 'b': 150}
 
     )
 
@@ -437,7 +437,7 @@ def create_chart_additions(gogpt_add, sel_country):
         #     x=.4,
         #     traceorder='normal',
         # ),
-        margin={'r': 60, 't': 100, 'l': 60, 'b': 100}
+        margin={'r': 60, 't': 100, 'l': 60, 'b': 150}
     )
     fig_add.add_annotation(dict(font=dict(color='dark blue',size=10),
                         x=.02,
@@ -451,7 +451,7 @@ def create_chart_additions(gogpt_add, sel_country):
     )
     fig_add.add_annotation(dict(font=dict(color='dark blue',size=10),
                         x=.02,
-                        y=-0.5,
+                        y=-0.6,
                         align='left',
                         showarrow=False,
                         text=
