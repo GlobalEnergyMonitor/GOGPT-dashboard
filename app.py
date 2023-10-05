@@ -502,14 +502,14 @@ choro_graph = dcc.Graph(
     id='chart_choro', 
     figure=fig_map, 
     config={'displayModeBar': False},
-    style={'marginLeft': 10, 'marginRight': 2000, 'marginBottom': 2, 'marginTop': 2},
+    style={'marginLeft': 'auto', 'marginRight': 'auto', 'marginBottom': 'auto', 'marginTop': 'auto'},
     )
 
 status_graph = dcc.Graph(
     id='chart_status', 
     figure=fig_status,
     config={'displayModeBar': False},
-    style={'marginLeft': 80, 'marginRight': 10, 'marginBottom': 2, 'marginTop': 2},
+    style={'marginLeft': 'auto', 'marginRight': 'auto', 'marginBottom': 'auto', 'marginTop': 'auto'},
 
     )
 
@@ -517,7 +517,7 @@ age_graph = dcc.Graph(
     id='chart_age', 
     figure=fig_age,
     config={'displayModeBar': False},
-        style={'marginLeft': 10, 'marginRight': 2000, 'marginBottom': 10, 'marginTop': 2},
+        style={'marginLeft': 'auto', 'marginRight': 'auto', 'marginBottom': 'auto', 'marginTop': 'auto'},
 
     )
 
@@ -525,7 +525,7 @@ add_graph = dcc.Graph(
     id='chart_add', 
     figure=fig_add,
     config={'displayModeBar': False},
-        style={'marginLeft': 80, 'marginRight': 10, 'marginBottom': 10, 'marginTop': 2},
+        style={'marginLeft': 'auto', 'marginRight': 'auto', 'marginBottom': 'auto', 'marginTop': 'auto'},
 
     )
 
