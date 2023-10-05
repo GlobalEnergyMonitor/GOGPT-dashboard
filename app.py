@@ -143,6 +143,7 @@ def create_chart_choro(gogpt_map, sel_country):
         title_text='<b>Operating Gas & Oil Power Capacity by Country</b>',
         # use margin to get title placement correct
         margin={'r': 100, 't': 100, 'l': 60, 'b': 150},
+        title_x=0.5,
         dragmode=False,
         geo=dict(
                 showframe=False,
@@ -232,6 +233,7 @@ def create_chart_by_status(gogpt_status, sel_country):
     fig_status.update_layout(
         barmode='stack',
         title='<b>Gas & Oil Power Capacity by Status</b>',
+        title_x=0.5,
         margin={'r': 10, 't': 100, 'l': 100, 'b': 150},
         yaxis=dict(
             title='Megawatts (MW)',
@@ -242,6 +244,7 @@ def create_chart_by_status(gogpt_status, sel_country):
         tickmode = 'array',
         tickvals = [2021.5, 2022, 2022.5, 2023, 2023.5],
         ticktext = ['H1 2021', 'H2 2021', 'H1 2022*\u200b', 'H2 2022', 'H1 2023'],
+        tickangle=0
         ),
 
         legend=dict(
@@ -271,7 +274,7 @@ def create_chart_by_status(gogpt_status, sel_country):
     )
     fig_status.add_annotation(dict(font=dict(color='dark blue',size=12),
                         x=.02,
-                        y=-0.6,
+                        y=-0.7,
                         align='left',
                         showarrow=False,
                         text=
@@ -351,6 +354,7 @@ def create_chart_age_type(gogpt_age, sel_country):
     fig_age.update_layout(
         barmode='stack',
         title='<b>Operating Gas & Oil Power Capacity by Age and Type</b>',
+        title_x=0.5,
         margin={'r': 100, 't': 100, 'l': 60, 'b': 150},
         xaxis=dict(
             title='Megawatts (MW)',
@@ -419,6 +423,7 @@ def create_chart_additions(gogpt_add, sel_country):
     fig_add.update_layout(
         barmode='stack', 
         title='<b>Gas & Oil Power Capacity Added</b>',
+        title_x=0.5,
         # showlegend=True,
         margin={'r': 10, 't': 100, 'l': 100, 'b': 150},
         yaxis=dict(
