@@ -140,9 +140,9 @@ def create_chart_choro(gogpt_map, sel_country):
 
     # assign title and arrange
     fig_map.update_layout(
-        title_text='Operating Gas & Oil Power Capacity by Country',
+        title_text='<b>Operating Gas & Oil Power Capacity by Country</b>',
         # use margin to get title placement correct
-        margin={'r': 60, 't': 100, 'l': 60, 'b': 150},
+        margin={'r': 100, 't': 100, 'l': 60, 'b': 150},
         dragmode=False,
         geo=dict(
                 showframe=False,
@@ -153,19 +153,20 @@ def create_chart_choro(gogpt_map, sel_country):
                 visible=True,
             ),
     )
-    fig_map.add_annotation(dict(font=dict(color='dark blue',size=10),
-                        x=.02,
-                        y=-0.4,
+    fig_map.add_annotation(dict(font=dict(color='dark blue',size=12),
+                        x=.05,
+                        y=-0.6,
                         # height=4,
                         align='left',
                         # width=800,
                         showarrow=False,
                         text=
-                            "<b>Total operating gas and oil power capacity by country as " + 
+                            "Total operating gas and oil power capacity by country as " + 
                             "<br>of latest data release (see release date below). Hover over " +
                             "<br>each country on the map to see total operating capacity. " +
-                            "<br>Filter to select a specific country. Read our <a href='https://globalenergymonitor.org/projects/global-oil-gas-plant-tracker/methodology/'>Methodology page</a> " +
-                            "<br>for more information on our data inclusion criteria and methodology.</b>",
+                            "<br>Filter to select a specific country. " + 
+                            "<br>Read our <a href='https://globalenergymonitor.org/projects/global-oil-gas-plant-tracker/methodology/'>Methodology page</a> for more information on our " +
+                            "<br>data inclusion criteria and methodology.",
                         textangle=0,
                         xanchor='left',
                         xref= 'paper',
@@ -230,9 +231,11 @@ def create_chart_by_status(gogpt_status, sel_country):
 
     fig_status.update_layout(
         barmode='stack',
-        title='Gas & Oil Power Capacity by Status',
+        title='<b>Gas & Oil Power Capacity by Status</b>',
+        margin={'r': 10, 't': 100, 'l': 100, 'b': 150},
         yaxis=dict(
             title='Megawatts (MW)',
+
         ),
 
         xaxis = dict(
@@ -250,12 +253,11 @@ def create_chart_by_status(gogpt_status, sel_country):
             x=1,
             traceorder='normal',
         ),
-        margin={'r': 60, 't': 100, 'l': 60, 'b': 150}
     )
 
     fig_status.add_annotation(dict(font=dict(color='dark blue',size=10),
                             x=.02,
-                            y=-0.3,
+                            y=-0.23,
                             align='left',
                             showarrow=False,
                             text=
@@ -267,16 +269,16 @@ def create_chart_by_status(gogpt_status, sel_country):
                             yref= 'paper',
                             )
     )
-    fig_status.add_annotation(dict(font=dict(color='dark blue',size=10),
+    fig_status.add_annotation(dict(font=dict(color='dark blue',size=12),
                         x=.02,
                         y=-0.6,
                         align='left',
                         showarrow=False,
                         text=
-                            '<b>Oil and gas power capacity by status over bi-annual intervals. ' +
+                            'Oil and gas power capacity by status over bi-annual intervals. ' +
                             '<br>Hover over each graph section to see total capacity for the specific ' +
                             '<br>status category for that time period. ' +
-                            '<br>Read our <a href="https://globalenergymonitor.org/projects/global-oil-gas-plant-tracker/methodology/">Methodology page</a> for definitions of our status categories. </b>',
+                            '<br>Read our <a href="https://globalenergymonitor.org/projects/global-oil-gas-plant-tracker/methodology/">Methodology page</a> for definitions of our status categories.',
                         textangle=0,
                         xanchor='left',
                         xref='paper',
@@ -348,33 +350,31 @@ def create_chart_age_type(gogpt_age, sel_country):
 
     fig_age.update_layout(
         barmode='stack',
-        title='Operating Gas & Oil Power Capacity by Age and Type',
+        title='<b>Operating Gas & Oil Power Capacity by Age and Type</b>',
+        margin={'r': 100, 't': 100, 'l': 60, 'b': 150},
         xaxis=dict(
             title='Megawatts (MW)',
         ),
         legend=dict(
             orientation='h',
             yanchor='top',
-            y=-0.25,
+            y=1,
             xanchor='left',
-            x=0,
+            x=1,
             traceorder='normal',
         ),
-        margin={'r': 60, 't': 100, 'l': 60, 'b': 150}
 
     )
 
-    fig_age.add_annotation(dict(font=dict(color='dark blue',size=10),
-                        x=1,
-                        y=0.1,
+    fig_age.add_annotation(dict(font=dict(color='dark blue',size=12),
+                        x=.02,
+                        y=-0.6,
                         showarrow=False,
                         text=
-                        '<b>Operating oil and gas power capacity by age and ' +
-                        '<br>technology type. Hover over each graph section to see ' +
-                        '<br>total capacity for the specific ' +
-                        '<br>technology type for that age range.</b>',
-                        textangle=0,
-                        # xanchor='auto',
+                        'Operating oil and gas power capacity by age and technology type.' +
+                        '<br>Hover over each graph section to see total capacity' +
+                        '<br>for the specific technology type for that age range.',                        textangle=0,
+                        xanchor='left',
                         align='left',
                         xref='paper',
                         yref='paper')
@@ -418,8 +418,9 @@ def create_chart_additions(gogpt_add, sel_country):
     # update overall layout
     fig_add.update_layout(
         barmode='stack', 
-        title='Gas & Oil Power Capacity Added',
+        title='<b>Gas & Oil Power Capacity Added</b>',
         # showlegend=True,
+        margin={'r': 10, 't': 100, 'l': 100, 'b': 150},
         yaxis=dict(
             title='Megawatts (MW)',
         ),
@@ -437,7 +438,6 @@ def create_chart_additions(gogpt_add, sel_country):
         #     x=.4,
         #     traceorder='normal',
         # ),
-        margin={'r': 60, 't': 100, 'l': 60, 'b': 150}
     )
     fig_add.add_annotation(dict(font=dict(color='dark blue',size=10),
                         x=.02,
@@ -449,17 +449,17 @@ def create_chart_additions(gogpt_add, sel_country):
                         xref='paper',
                         yref='paper')
     )
-    fig_add.add_annotation(dict(font=dict(color='dark blue',size=10),
+    fig_add.add_annotation(dict(font=dict(color='dark blue',size=12),
                         x=.02,
-                        y=-0.6,
+                        y=-0.7,
                         align='left',
                         showarrow=False,
                         text=
-                            '<b>Annual oil and gas power capacity additions ' +
+                            'Annual oil and gas power capacity additions ' +
                             '<br>by start year. Hover over each graph section to see ' +
                             '<br>total oil and gas power capacity addition for the specific ' +
                             '<br>start year. Note that this graph subtracts any capacity for ' +
-                            '<br>plants that have retired since 2000.</b>',
+                            '<br>plants that have retired since 2000.',
                         textangle=0,
                         xanchor='left',
                         xref='paper',
@@ -489,32 +489,39 @@ server = app.server
 # ===================================
 # Create graphs of charts
 
-dropdown_title = html.H5(children='Select a country:', style={'marginBottom': 10, 'marginTop': 25}), 
+dropdown_title = html.H5(children='Select a country:', style={'marginLeft': 10, 'marginRight': 10, 'marginBottom': 10, 'marginTop': 25}), 
 download_text = html.H6(children='Download figure data:')
 download_button = html.Button("Download Excel file", id="btn_xlsx"),
 
 choro_graph = dcc.Graph(
     id='chart_choro', 
     figure=fig_map, 
-    config={'displayModeBar': False}
+    config={'displayModeBar': False},
+    style={'marginLeft': 10, 'marginRight': 2000, 'marginBottom': 2, 'marginTop': 2},
     )
 
 status_graph = dcc.Graph(
     id='chart_status', 
     figure=fig_status,
-    config={'displayModeBar': False}
+    config={'displayModeBar': False},
+    style={'marginLeft': 80, 'marginRight': 10, 'marginBottom': 2, 'marginTop': 2},
+
     )
 
 age_graph = dcc.Graph(
     id='chart_age', 
     figure=fig_age,
-    config={'displayModeBar': False}
+    config={'displayModeBar': False},
+        style={'marginLeft': 10, 'marginRight': 2000, 'marginBottom': 10, 'marginTop': 2},
+
     )
 
 add_graph = dcc.Graph(
     id='chart_add', 
     figure=fig_add,
-    config={'displayModeBar': False}
+    config={'displayModeBar': False},
+        style={'marginLeft': 80, 'marginRight': 10, 'marginBottom': 10, 'marginTop': 2},
+
     )
 
 # ===================================
