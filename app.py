@@ -42,7 +42,7 @@ def sort_status(df):
 # ===================================
 layout_chosen = '2 columns'  # options: '1 column', '2 columns'
 # filepath = 'https://github.com/GlobalEnergyMonitor/GOGPT-dashboard/blob/main/data/Global%20Oil%20and%20Gas%20Plant%20Tracker%20(GOGPT)%20compiled%202023-08-18%20-%20processed%20for%20Dash%202023-09-18_1621.xlsx?raw=true'
-filepath = 'https://github.com/GlobalEnergyMonitor/GOGPT-dashboard/blob/main/data/Global%20Oil%20and%20Gas%20Plant%20Tracker%20(GOGPT)%20compiled%202023-08-18%20-%20processed%20for%20Dash%202023-09-21_1637.xlsx?raw=true'
+filepath = 'https://github.com/GlobalEnergyMonitor/GOGPT-dashboard/blob/main/data/Global%20Oil%20and%20Gas%20Plant%20Tracker%20(GOGPT)%20compiled%202023-08-18%20-%20processed%20for%20Dash%202023-10-17_1906.xlsx?raw=true'
 # # ===================================
 dash_data_xl = pd.ExcelFile(filepath, engine='openpyxl')
 
@@ -314,31 +314,34 @@ age_tech_pallette = {
 
 def create_chart_age_type(gogpt_age, sel_country):
     fig_age = go.Figure() # initialize
+
+    technologies_in_order = [
+    'Gas Turbine',
+    'Steam Turbine',
+    'Combined Cycle',
+    'Internal Combustion Combined Cycle',
+    'Integrated Solar Combined Cycle',
+    'Allam-Fetvedt Cycle',
+    'Internal Combustion',
+    'Unknown'
+    ]
     
     gogpt_age_sel_country = gogpt_age[gogpt_age['Country'] == sel_country].drop('Country', axis=1)
     gogpt_age_sel_country = gogpt_age_sel_country.set_index('Decade')
     decades = ['0-9 years', '10-19 years', '20-29 years', '30-39 years', '40-49 years', '50+ years']
     for decade in decades:
         if decade not in gogpt_age_sel_country.index:
+            print(f'decade not in {sel_country}: {decade}') # for debuggins
             new_row_df = pd.DataFrame(
                 data=[[0]*len(technologies_in_order)], 
                 columns=technologies_in_order, 
                 index=[decade]
                 )
-            gogpt_age_sel_country = gogpt_age_sel_country.concat(new_row_df)
+            # old way was causing errors so switched to updated concat syntax 
+            # gogpt_age_sel_country = gogpt_age_sel_country.concat(new_row_df) https://github.com/keras-team/keras-io/issues/1518#issuecomment-1741335324
+            gogpt_age_sel_country = pd.concat([gogpt_age_sel_country, new_row_df], ignore_index=True) # axis=1
 
     gogpt_age_sel_country = gogpt_age_sel_country.sort_index()
-
-    technologies_in_order = [
-        'Gas Turbine',
-        'Steam Turbine',
-        'Combined Cycle',
-        'Internal Combustion Combined Cycle',
-        'Integrated Solar Combined Cycle',
-        'Allam-Fetvedt Cycle',
-        'Internal Combustion',
-        'Unknown'
-    ]
 
     gogpt_age_sel_country.columns.tolist()
     for technology in technologies_in_order:
