@@ -15,7 +15,7 @@ import plotly.graph_objs as go
 # ===================================
 # Key parameters
 # release_date = 'July 2023'
-release_date = 'August 2023'
+release_date = 'February 2024'
 # ===================================
 def sort_status(df):
     """
@@ -242,8 +242,8 @@ def create_chart_by_status(gogpt_status, sel_country):
 
         xaxis = dict(
         tickmode = 'array',
-        tickvals = [2021.5, 2022, 2022.5, 2023, 2023.5],
-        ticktext = ['H1 2021', 'H2 2021', 'H1 2022*\u200b', 'H2 2022', 'H1 2023'],
+        tickvals = [2021.5, 2022, 2022.5, 2023, 2023.5, 2024],
+        ticktext = ['H1 2021', 'H2 2021', 'H1 2022*\u200b', 'H2 2022', 'H1 2023', 'H2 2023'],
         tickangle=0
         ),
 
@@ -436,7 +436,7 @@ def create_chart_additions(gogpt_add, sel_country):
             title='Plant Start Year',
             tickmode = 'array',
             tickvals = [2002, 2005, 2008, 2011, 2014, 2017, 2020, 2023],
-            ticktext = ['2002', '2005', '2008', '2011', '2014', '2017', '2020', '2023*\u200b']
+            ticktext = ['2002', '2005', '2008', '2011', '2014', '2017', '2020', '2023']
         ),
         # legend=dict(
         #     orientation='h',
@@ -447,15 +447,15 @@ def create_chart_additions(gogpt_add, sel_country):
         #     traceorder='normal',
         # ),
     )
-    fig_add.add_annotation(dict(font=dict(color='dark blue',size=10),
-                        x=.02,
-                        y=-0.2,
-                        showarrow=False,
-                        text='*\u200bH1 2023 data',
-                        textangle=0,
-                        xanchor='left',
-                        xref='paper',
-                        yref='paper')
+    # fig_add.add_annotation(dict(font=dict(color='dark blue',size=10),
+    #                     x=.02,
+    #                     y=-0.2,
+    #                     showarrow=False,
+    #                     text='*\u200bH1 2023 data',
+    #                     textangle=0,
+    #                     xanchor='left',
+    #                     xref='paper',
+    #                     yref='paper')
     )
     fig_add.add_annotation(dict(font=dict(color='dark blue',size=12),
                         x=.02,
