@@ -42,7 +42,9 @@ def sort_status(df):
 # ===================================
 layout_chosen = '2 columns'  # options: '1 column', '2 columns'
 # filepath = 'https://github.com/GlobalEnergyMonitor/GOGPT-dashboard/blob/main/data/Global%20Oil%20and%20Gas%20Plant%20Tracker%20(GOGPT)%20compiled%202023-08-18%20-%20processed%20for%20Dash%202023-09-18_1621.xlsx?raw=true'
-filepath = 'https://github.com/GlobalEnergyMonitor/GOGPT-dashboard/blob/main/data/Global%20Oil%20and%20Gas%20Plant%20Tracker%20(GOGPT)%20compiled%202023-08-18%20-%20processed%20for%20Dash%202023-10-17_1906.xlsx?raw=true'
+# filepath = 'https://github.com/GlobalEnergyMonitor/GOGPT-dashboard/blob/main/data/Global%20Oil%20and%20Gas%20Plant%20Tracker%20(GOGPT)%20compiled%202023-08-18%20-%20processed%20for%20Dash%202023-10-17_1906.xlsx?raw=true'
+filepath = 'https://github.com/GlobalEnergyMonitor/GOGPT-dashboard/blob/main/data/Global%20Oil%20and%20Gas%20Plant%20Tracker%20(GOGPT)%20compiled%20own-par%202024-02-16%20-%20processed%20for%20Dash%202024-02-16_1845.xlsx?raw=true'
+
 # # ===================================
 dash_data_xl = pd.ExcelFile(filepath, engine='openpyxl')
 
