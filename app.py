@@ -14,8 +14,8 @@ import plotly.graph_objs as go
 
 # ===================================
 # Key parameters
-# release_date = 'July 2023'
-release_date = 'February 2024'
+release_date = 'July 2023'
+# release_date = 'February 2024'
 # ===================================
 def sort_status(df):
     """
@@ -42,8 +42,8 @@ def sort_status(df):
 # ===================================
 layout_chosen = '2 columns'  # options: '1 column', '2 columns'
 # filepath = 'https://github.com/GlobalEnergyMonitor/GOGPT-dashboard/blob/main/data/Global%20Oil%20and%20Gas%20Plant%20Tracker%20(GOGPT)%20compiled%202023-08-18%20-%20processed%20for%20Dash%202023-09-18_1621.xlsx?raw=true'
-# filepath = 'https://github.com/GlobalEnergyMonitor/GOGPT-dashboard/blob/main/data/Global%20Oil%20and%20Gas%20Plant%20Tracker%20(GOGPT)%20compiled%202023-08-18%20-%20processed%20for%20Dash%202023-10-17_1906.xlsx?raw=true'
-filepath = 'https://github.com/GlobalEnergyMonitor/GOGPT-dashboard/blob/main/data/Global%20Oil%20and%20Gas%20Plant%20Tracker%20(GOGPT)%20compiled%20own-par%202024-02-16%20-%20processed%20for%20Dash%202024-02-16_1845.xlsx?raw=true'
+filepath = 'https://github.com/GlobalEnergyMonitor/GOGPT-dashboard/blob/main/data/Global%20Oil%20and%20Gas%20Plant%20Tracker%20(GOGPT)%20compiled%202023-08-18%20-%20processed%20for%20Dash%202023-10-17_1906.xlsx?raw=true'
+# filepath = 'https://github.com/GlobalEnergyMonitor/GOGPT-dashboard/blob/main/data/Global%20Oil%20and%20Gas%20Plant%20Tracker%20(GOGPT)%20compiled%20own-par%202024-02-16%20-%20processed%20for%20Dash%202024-02-16_1845.xlsx?raw=true'
 
 # # ===================================
 dash_data_xl = pd.ExcelFile(filepath, engine='openpyxl')
@@ -449,15 +449,15 @@ def create_chart_additions(gogpt_add, sel_country):
         #     traceorder='normal',
         # ),
     )
-    # fig_add.add_annotation(dict(font=dict(color='dark blue',size=10),
-    #                     x=.02,
-    #                     y=-0.2,
-    #                     showarrow=False,
-    #                     text='*\u200bH1 2023 data',
-    #                     textangle=0,
-    #                     xanchor='left',
-    #                     xref='paper',
-    #                     yref='paper')
+    fig_add.add_annotation(dict(font=dict(color='dark blue',size=10),
+                         x=.02,
+                         y=-0.2,
+                         showarrow=False,
+                         text='*\u200bH1 2023 data',
+                         textangle=0,
+                         xanchor='left',
+                         xref='paper',
+                         yref='paper')
     )
     fig_add.add_annotation(dict(font=dict(color='dark blue',size=12),
                         x=.02,
